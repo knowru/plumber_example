@@ -1,4 +1,4 @@
-setwd("C:/Users/E014556/Documents/repository/churn/apis/ruk_2/")
+#setwd("C:/Users/E014556/Documents/repository/churn/apis/ruk_2/")
 
 library(ranger)
 library(jsonlite)
