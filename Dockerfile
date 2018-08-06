@@ -1,4 +1,23 @@
 FROM trestletech/plumber
+ENV http_proxy http://10.1.4.44:8080
+ENV https_proxy http://10.1.4.44:8080
+# Install OpenJDK-8
+RUN apt-get update && \
+    apt-get install -y openjdk-8-jdk && \
+    apt-get install -y ant && \
+    apt-get clean;
+# Fix certificate issues
+RUN apt-get update && \
+    apt-get install ca-certificates-java && \
+    apt-get clean && \
+    update-ca-certificates -f;
+# Setup JAVA_HOME -- useful for docker commandline
+ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
+RUN export JAVA_HOME
+RUN R CMD javareconf
+RUN R -e "install.packages('ranger')"
+RUN R -e "install.packages('jsonlite')"
+
 RUN mkdir -p /app/
 WORKDIR /app/
 COPY run.R /app/
