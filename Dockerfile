@@ -17,7 +17,8 @@ ENV https_proxy http://10.1.4.44:8080
 #RUN R CMD javareconf
 RUN apt-get update
 RUN apt-get install r-base
-RUN R -e "set_config(use_proxy(url='10.1.4.44',port=8080))"
+RUN export http_proxy=http://10.1.4.44:8080
+
 RUN R -e "install.packages('jsonlite',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 RUN R -e "install.packages('randomForest',dependencies=TRUE, repos='http://cran.rstudio.com/')"
 
