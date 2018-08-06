@@ -17,7 +17,7 @@ ENV https_proxy http://10.1.4.44:8080
 #RUN R CMD javareconf
 RUN apt-get update
 RUN R -e "install.packages('jsonlite', repos='https://cloud.r-project.org/')"
-RUN R -e "install.packages('ranger', repos='https://cloud.r-project.org/')"
+RUN R -e "install.packages('randomForest', repos='https://cloud.r-project.org/')"
 
 RUN mkdir -p /app/
 WORKDIR /app/
