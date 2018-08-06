@@ -15,6 +15,7 @@ ENV https_proxy http://10.1.4.44:8080
 #ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 #RUN export JAVA_HOME
 #RUN R CMD javareconf
+RUN sudo apt-get update
 RUN R -e "install.packages('jsonlite', repos='https://cloud.r-project.org/')"
 RUN R -e "install.packages('ranger', repos='https://cloud.r-project.org/')"
 
