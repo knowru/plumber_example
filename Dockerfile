@@ -1,6 +1,4 @@
 FROM trestletech/plumber
-#ENV http_proxy http://10.1.4.44:8080
-#ENV https_proxy http://10.1.4.44:8080
 # Install OpenJDK-8
 RUN apt-get update && \
     apt-get install -y openjdk-8-jdk && \
