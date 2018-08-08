@@ -17,7 +17,7 @@ RUN apt-get update
 RUN apt-get install r-base
 
 RUN R -e "install.packages('jsonlite')"
-RUN R -e "install.packages('randomForest')"
+RUN R -e "install.packages('ranger')"
 
 RUN mkdir -p /app/
 WORKDIR /app/
